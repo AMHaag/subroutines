@@ -1,10 +1,11 @@
 import React from 'react';
+import './pages.css'
 
 let Login =function(){
 
     return (
       <div>
-        <form className='login-forms' id='login-form' onSubmit={alert('submit!')}>
+        <form className='login-forms' id='login-form' onSubmit={console.log('submit!')}>
           <h2>Log In</h2>
           <div>
             <label for='user-login'>User:</label>
@@ -15,7 +16,7 @@ let Login =function(){
             <input type='password' id='password-login' />
           </div>
           <div>
-            <button type='submit'>Log Me In!</button>
+            <button type='submit'>Login</button>
           </div>
         </form>
       </div>

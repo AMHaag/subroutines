@@ -9,6 +9,7 @@
 [ ] create more robut Error handling for sign up
 
 ## Client
-[ ] Create user login page
+[X] Create user login page
+    [ ] learn to use react-dom-router to implement/login to work properly
 [ ] Save logged in user to JWT and Global State
 [ ] create splash screen
