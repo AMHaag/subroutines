@@ -1,38 +1,65 @@
+/* Login Component Styling */
 
-
-.login-forms {
-    background-color: purple;
-    /* color: aliceblue; */
-    padding: 2rem;
-    margin: 6px auto;
-    border-radius: 5px;
-    width: 50%;
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-picture{
+    padding: 5px 10px 5px 10px;
+}
+.login-title-box{
+    display:flex;
+    align-items: flex-start;
+    min-height: 65px;
+    max-height: 65px;
+    min-width: 317px;
 }
 
-.login-forms h2 {
-    /* color: aqua; */
-    margin: auto;
-    font-size: 2em;
+.login-title h2{
+    font-size: 28pt;
+}
+.login-forms {
+    /* color: aliceblue; */
+    min-width: 317px;
+}
+.login-input-container {
+min-height: 65px;
+/* border: 1px solid black; */
+font-size: 24pt;
+display: flex;
+align-items: center;
 }
 
 .login-forms input {
     padding: 3px;
+    min-height: 1.25rem;
+    min-width:225px;
     border-radius: 2px;
     border-style: none;
     margin: 1rem;
+    border-bottom: 1px  solid gray;
+
+}
+
+.login-submit-container{
+    display:flex;
+    justify-content: center;
 }
 
 .login-forms button {
+    width: 300px;
+    height:50px;
     color: black;
     background-color: aqua;
     border-radius: 4px;
     padding: 5px;
     border-style: none;
     box-shadow: 2px 2px 3px black;
+    font-size: 16pt;
     font-weight: normal;
     margin: 4px;
 }
-
 .login-forms button:hover {
     color: black;
     padding: 7px;
@@ -46,6 +73,16 @@
     font-weight: bold;
     padding: 8px;
 }
+
+.login-options{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:75px;
+}
+.login-options a{
+    padding:5px;
+}
 .hidden {
     display: none;
 }
@@ -53,4 +90,100 @@
     .login-forms {
         width: 50%;
     }
+}
+
+/* Sign Up Component Styling */
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-picture {
+    padding: 5px 10px 5px 10px;
+}
+
+.signup-title-box {
+    display: flex;
+    align-items: flex-start;
+    min-height: 65px;
+    max-height: 65px;
+    min-width: 317px;
+}
+
+.signup-title h2 {
+    font-size: 28pt;
+}
+
+.signup-forms {
+    /* color: aliceblue; */
+    min-width: 317px;
+}
+
+.signup-input-container {
+    min-height: 65px;
+    /* border: 1px solid black; */
+    font-size: 24pt;
+    display: flex;
+    align-items: center;
+}
+
+.signup-forms input {
+    padding: 3px;
+    min-height: 1.25rem;
+    min-width: 225px;
+    border-radius: 2px;
+    border-style: none;
+    margin: 1rem;
+    border-bottom: 1px solid gray;
+
+}
+
+.signup-submit-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-forms button {
+    width: 300px;
+    height: 50px;
+    color: black;
+    background-color: aqua;
+    border-radius: 4px;
+    padding: 5px;
+    border-style: none;
+    box-shadow: 2px 2px 3px black;
+    font-weight: normal;
+    font-size: 16pt;
+    margin: 4px;
+}
+
+.signup-forms button:hover {
+    color: black;
+    padding: 7px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 1) 0%, rgba(0, 169, 247, 1) 100%);
+    box-shadow: 4px 4px 5px black;
+}
+
+.signup-forms button:active {
+    background-color: rgba(0, 169, 247, 1);
+    box-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.signup-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.signup-options a {
+    padding: 5px;
+}
+
+.hidden {
+    display: none;
 }
