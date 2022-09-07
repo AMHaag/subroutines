@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import './pages.css';
 import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 
@@ -37,7 +38,7 @@ let SignUp = function () {
         </div>
       </form>
       <div className='signup-options'>
-        <a href='/'>Already have an account?</a>
+        <Link to='/login'>Already have an account?</Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import './pages.css';
 import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
 
@@ -41,8 +42,8 @@ let Login = function () {
         </div>
       </form>
       <div className='login-options'>
-        <a href='/'>Forgot Password?</a>
-        <a href='/'>New to SubRoutines? Sign up for free!</a>
+        <Link to='/forgot-password'>Forgot Password?</Link>
+        <Link to='/signup'>New to SubRoutines? Sign up for free!</Link>
       </div>
     </div>
   );
