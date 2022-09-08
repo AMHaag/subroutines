@@ -4,13 +4,6 @@ let SALT_ROUNDS = 10;
 
 const UserSchema = new Schema(
   {
-    username: {
-      type: String,
-      unique: true,
-      trim: true,
-      required: true,
-      minlength: 6,
-    },
     email: {
       type: String,
       required: true,
@@ -21,15 +14,15 @@ const UserSchema = new Schema(
     password: {
       type: String,
       required: true,
-      minLength: 8,
+      minLength: [8,'Password must be at least 8 characters'],
       // select: false,
     },
-    // eventsCreated: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Event',
-    //   },
-    // ],
+    routinesCreated: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Routine',
+      },
+    ],
     // eventsAttended: [
     //   {
     //     type: Schema.Types.ObjectId,

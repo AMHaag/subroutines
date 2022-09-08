@@ -1,0 +1,86 @@
+const { User } = require('../models');
+const bcrypt = require('bcrypt');
+const auth = require('../utils/auth');
+
+const userController = {
+  getAllUsers: function (req, res) {
+    User.find()
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(400);
+      });
+  },
+  getUserById: function ({ params }, res) {
+    User.findOne({ _id: params.id })
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(400);
+      });
+  },
+  postNewUser: function ({ body }, res) {
+    User.create(body)
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => res.json(err));
+  },
+  udpateUserById: function ({ params, body }, res) {
+    User.findOneAndUpdate({ _id: params.id }, body, { new: true })
+      .then((dbUserData) => {
+        if (!dbUserData) {
+          res.status(404).json({ message: 'User ID not found' });
+          return;
+        }
+        res.json(dbUserData);
+      })
+      .catch((err) => res.json(err));
+  },
+  updateUserPassword: function ({ params, body }, res) {
+    User.findById(params.id, function (err, doc) {
+      if (err) return false;
+      doc.password = body.password;
+      doc.save();
+      res.json({ message: 'password updated' });
+    });
+  },
+  deleteUser: function ({ params }, res) {
+    User.findOneAndDelete({ userId: params.id })
+      .then((dbUserData) => {
+        if (!dbUserData) {
+          res.status(404).json({ message: 'User ID not found' });
+          return;
+        }
+        res.json(dbUserData);
+      })
+      .catch((err) => res.json(err));
+  },
+  // /api/users/login
+  userLogin: function ({ body }, res) {
+    User.findOne({ email: body.email })
+      .then((dbUserData) =>
+        bcrypt.compare(
+          body.password,
+          dbUserData.password,
+          function (err, result) {
+            if (result) {
+              res.json(
+                auth.signToken({
+                  email: dbUserData.email,
+                  _id: dbUserData._id,
+                })
+              );
+            }
+            if (!result) {
+              res.sendStatus(401);
+            }
+          }
+        )
+      )
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+      });
+  },
+};
+
+module.exports = userController;
